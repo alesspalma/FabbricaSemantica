@@ -1,0 +1,27 @@
+package fabbricasemantica;
+
+/**
+ * Classe che implementa un generatore di numeri casuale, i numeri sono
+ * multipli di 15 in modo che il canvas dello snake venga visto come una matrice
+ * @author aless
+ *
+ */
+public class RandomNumber
+{
+	/**
+	 * Costruttore privato, il generatore non e' istanziabile ma solo accedibile
+	 * tramite il metodo pubblico get
+	 */
+	private RandomNumber() {}
+	
+	/**
+	 * Metodo che ritorna sempre un numero multiplo di 15 compreso in un intervallo
+	 * (0,end). Prima il limite end (+1 affinche' sia possibile ottenere anche il numero end se 
+	 * esso e' multiplo di 15) viene moltiplicato per un double random tra 0 e 1, poi esso 
+	 * viene arrotondato per difetto, diviso per 15, arrotondato a intero e moltiplicato per 15.
+	 * @param end limite numerico
+	 * @return un multiplo di 15 compreso tra (0,end)
+	 */
+	public static int get(int end) { return (int)((Math.floor(Math.random() * (end+1)))/DisplayElement.SIDE)*DisplayElement.SIDE; }
+	
+}
